@@ -15,4 +15,44 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         Log.i(TAG,"Created new activity " + this.localClassName)
     }
+
+    override fun onStart() {
+        super.onStart() //Everything in the superclass still needs to be run
+        Log.i(TAG,"Started activity")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG,"Activity resumed")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG,"Activity paused")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG,"Stopped activity")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(TAG,"Activity restarted")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG,"Activity destroyed")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.i(TAG,"Saving instance states")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.i(TAG,"Restoring instance states")
+    }
 }
