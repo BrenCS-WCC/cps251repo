@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">assignment3</string>
+    <string name="inputLabel">Enter a value in USD.</string>
+    <string name="buttonLabel">Calculate Tip</string>
+    <string name="statusLabelText"> </string>
+    <string name="reportLabelText">Tip amounts will display here.</string>
+    <string name="blankInputError">You must enter a bill amount!</string>
+    <string name="readyStatusMsg">"The tip amounts are as follows:"</string>
 </resources>
