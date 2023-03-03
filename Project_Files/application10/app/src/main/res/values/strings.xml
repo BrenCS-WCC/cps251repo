@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">application10</string>
+    <string name="dollarTextHint">Enter a value here.</string>
+    <string name="resultTextDefault">MainFragment</string>
+    <string name="convertButtonText">Convert</string>
+    <string name="noEntryCallout">No Value</string>
+</resources>
