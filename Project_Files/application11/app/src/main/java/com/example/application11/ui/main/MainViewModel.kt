@@ -5,17 +5,28 @@ import androidx.lifecycle.MutableLiveData
 
 class MainViewModel : ViewModel() {
     private val rate = 0.74f
-    private var dollarText = ""
+    //private var dollarText = ""
     //private var result: Float = 0f
-    private var result : MutableLiveData<Float> = MutableLiveData()
+    var dollarValue : MutableLiveData<String> = MutableLiveData()
+    var result : MutableLiveData<Float> = MutableLiveData()
 
-    fun setAmount(value: String) {
-        this.dollarText = value
-        //result = value.toFloat() * rate
-        result.value = value.toFloat() * rate
+    fun convertValue() {
+        dollarValue.let {
+            if (!it.value.equals("")) {
+                result.value = it.value?.toFloat()?.times(rate)
+            } else {
+                result.value = 0f
+            }
+        }
     }
 
-    fun getResult() : MutableLiveData<Float> {
-        return result
-    }
+//    fun setAmount(value: String) {
+//        this.dollarText = value
+//        //result = value.toFloat() * rate
+//        result.value = value.toFloat() * rate
+//    }
+//
+//    fun getResult() : MutableLiveData<Float> {
+//        return result
+//    }
 }
