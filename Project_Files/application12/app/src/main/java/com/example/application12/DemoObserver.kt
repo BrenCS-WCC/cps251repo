@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.LifecycleOwner
 
-class DemoObserver {
+class DemoObserver: LifecycleObserver {
     private val LOGTAG = "DemoObserver"
 
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)

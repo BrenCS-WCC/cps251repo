@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.application12.R
 
+import com.example.application12.DemoObserver
+
 class MainFragment : Fragment() {
 
     companion object {
@@ -19,7 +21,8 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        lifecycle.addObserver(DemoObserver())
     }
 
     override fun onCreateView(
