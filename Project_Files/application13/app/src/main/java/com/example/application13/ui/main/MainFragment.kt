@@ -41,7 +41,6 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //binding.setVariable(mainViewModel, viewModel)
         lifecycle.addObserver(DemoObserver())
     }
 }

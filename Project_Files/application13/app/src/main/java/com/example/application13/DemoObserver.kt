@@ -8,42 +8,36 @@ class DemoObserver : LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun onResume() {
-        //Log.i(LOGTAG,"onResume")
         MainViewModel.createLog(Lifecycle.Event.ON_RESUME)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun onPause() {
-        //Log.i(LOGTAG, "onPause")
         MainViewModel.createLog(Lifecycle.Event.ON_PAUSE)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
-        //Log.i(LOGTAG,"onCreate")
         MainViewModel.createLog(Lifecycle.Event.ON_CREATE)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onStart() {
-        //Log.i(LOGTAG, "onStart")
         MainViewModel.createLog(Lifecycle.Event.ON_START)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun onStop() {
-        //Log.i(LOGTAG, "onStop")
         MainViewModel.createLog(Lifecycle.Event.ON_STOP)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy() {
-        //Log.i(LOGTAG,"onDestroy")
         MainViewModel.createLog(Lifecycle.Event.ON_DESTROY)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-    fun onAny(owner: LifecycleOwner, event: Lifecycle.Event){
-        //Log.i(LOGTAG, owner.lifecycle.currentState.name)
-    }
+//    @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+//    fun onAny(owner: LifecycleOwner, event: Lifecycle.Event){
+//        //Log.i(LOGTAG, owner.lifecycle.currentState.name)
+//    }
 }

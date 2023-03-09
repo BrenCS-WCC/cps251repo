@@ -1,7 +1,6 @@
 package com.example.application13.ui.main
 
 import androidx.lifecycle.ViewModel
-import android.util.Log
 import androidx.lifecycle.Lifecycle.Event
 import androidx.lifecycle.MutableLiveData
 import java.time.LocalTime
@@ -30,12 +29,7 @@ class MainViewModel : ViewModel() {
             if (eventType in eventFlags) {
                 eventArray = eventArray.plus("********\n")
             }
-            if (eventArray.isNotEmpty()) {
-                Log.i("ViewModel", eventArray.last())
-            }
             historyString = generateReport()
         }
     }
-
-
 }
