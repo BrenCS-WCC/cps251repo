@@ -6,25 +6,29 @@ import androidx.lifecycle.Lifecycle.Event
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.MutableLiveData
+import java.time.LocalTime
 
 class MainViewModel : ViewModel() {
     private var historyString: MutableLiveData<String> = MutableLiveData()
 
-    fun msFormat(milliseconds : Long) : String {
-        return milliseconds.toString()
-    }
     companion object {
         private var eventArray = arrayOf<String>()
 
+        private var eventFlags = arrayOf(
+            Event.ON_RESUME,
+            Event.ON_PAUSE,
+            Event.ON_DESTROY)
+
         fun logEvent(eventType: Enum<Event>) {
-            Log.i("ViewModel", eventType.name)
-            eventArray.plus(eventType.name + "\n" + msFormat(System.currentTimeMillis()))
-            if (eventType == Lifecycle.Event.ON_PAUSE) {
-                eventArray.plus("********\n")
+            eventArray = eventArray.plus(eventType.name + " was fired at " + LocalTime.now().toString() + "\n")
+            if (eventType in eventFlags) {
+                eventArray = eventArray.plus("********\n")
+            }
+            if (eventArray.isNotEmpty()) {
+                Log.i("ViewModel", eventArray.last())
             }
         }
     }
-    fun test(string : String) {
-        Log.i("ViewModel", string)
-    }
+
+
 }
