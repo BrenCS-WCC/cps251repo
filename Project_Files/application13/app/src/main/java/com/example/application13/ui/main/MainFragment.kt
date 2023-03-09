@@ -40,7 +40,6 @@ class MainFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         //binding.setVariable(mainViewModel, viewModel)
         lifecycle.addObserver(DemoObserver())
