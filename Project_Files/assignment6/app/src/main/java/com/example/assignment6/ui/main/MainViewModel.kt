@@ -1,4 +1,4 @@
-package com.example.application13.ui.main
+package com.example.assignment6.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.Lifecycle.Event

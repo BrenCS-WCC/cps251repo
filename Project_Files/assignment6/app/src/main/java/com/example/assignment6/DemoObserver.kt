@@ -1,7 +1,7 @@
-package com.example.application13
+package com.example.assignment6
 
 import androidx.lifecycle.*
-import com.example.application13.ui.main.MainViewModel
+import com.example.assignment6.ui.main.MainViewModel
 
 class DemoObserver : LifecycleObserver {
     private val LOGTAG = "DemoObserver"

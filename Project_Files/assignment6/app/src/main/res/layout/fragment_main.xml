@@ -7,7 +7,7 @@
     <data>
         <variable
             name="mainViewModel"
-            type="com.example.application13.ui.main.MainViewModel"
+            type="com.example.assignment6.ui.main.MainViewModel"
             />
     </data>
 

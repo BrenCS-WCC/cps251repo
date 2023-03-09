@@ -1,8 +1,8 @@
-package com.example.application13
+package com.example.assignment6
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.application13.ui.main.MainFragment
+import com.example.assignment6.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

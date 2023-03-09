@@ -1,4 +1,4 @@
-package com.example.application13.ui.main
+package com.example.assignment6.ui.main
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,15 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleRegistry
-import com.example.application13.R
-import com.example.application13.DemoObserver
-import com.example.application13.databinding.FragmentMainBinding
+import com.example.assignment6.R
+import com.example.assignment6.DemoObserver
+import com.example.assignment6.databinding.FragmentMainBinding
 import androidx.databinding.DataBindingUtil
 
-import com.example.application13.BR.mainViewModel
-import android.util.Log
+import com.example.assignment6.BR.mainViewModel
 
 class MainFragment : Fragment() {
 
