@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">assignment7</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="displayImage1">Display Image 1</string>
+    <string name="displayImage2">Display Image 2</string>
+    <string name="displayImage3">Display Image 3</string>
+    <string name="todo">TODO</string>
+</resources>
