@@ -29,22 +29,22 @@ class MainFragment : Fragment() {
 
         binding.imageButton1.setOnClickListener {
             val action: MainFragmentDirections.MainToSecond = MainFragmentDirections.mainToSecond()
-            action.setTitle("image1")
-            Log.v("Log", "Sent data: " + action.title)
+            action.setTitle("Image 1")
+            action.setImage(R.drawable.android_image_1)
 
             Navigation.findNavController(it).navigate(action)
         }
         binding.imageButton2.setOnClickListener {
             val action: MainFragmentDirections.MainToSecond = MainFragmentDirections.mainToSecond()
-            action.setTitle("image2")
-            Log.v("Log", "Sent data: " + action.title)
+            action.setTitle("Image 2")
+            action.setImage(R.drawable.android_image_2)
 
             Navigation.findNavController(it).navigate(action)
         }
         binding.imageButton3.setOnClickListener {
             val action: MainFragmentDirections.MainToSecond = MainFragmentDirections.mainToSecond()
-            action.setTitle("image3")
-            Log.v("Log", "Sent data: " + action.title)
+            action.setTitle("Image 3")
+            action.setImage(R.drawable.android_image_2)
 
             Navigation.findNavController(it).navigate(action)
         }

@@ -23,5 +23,9 @@
             android:name="title"
             app:argType="string"
             android:defaultValue="Title Goes Here" />
+        <argument
+            android:name="image"
+            app:argType="integer"
+            android:defaultValue="1" />
     </fragment>
 </navigation>

@@ -58,23 +58,8 @@ class SecondFragment : Fragment() {
         super.onStart()
         arguments?.let {
             val args = SecondFragmentArgs.fromBundle(it)
-            var thisTitle = args.getTitle()
-            binding.titleView.text = thisTitle
-
-            when (thisTitle) {
-                "image1" -> {
-                    binding.titleView.text = "Image 1"
-                    binding.imageView.setImageResource(R.drawable.android_image_1)
-                }
-                "image2" -> {
-                    binding.titleView.text = "Image 2"
-                    binding.imageView.setImageResource(R.drawable.android_image_2)
-                }
-                "image3" -> {
-                    binding.titleView.text = "Image 3"
-                    binding.imageView.setImageResource(R.drawable.android_image_3)
-                }
-            }
+            binding.titleView.text = args.getTitle()
+            binding.imageView.setImageResource(args.getImage())
 
             Log.v("Log", "Received data:" + args.title)
         }
