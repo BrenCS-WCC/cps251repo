@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.assignment7.R
+import android.util.Log
 
 import com.example.assignment7.databinding.FragmentMainBinding
 
@@ -27,7 +28,25 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         binding.imageButton1.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.mainToSecond)
+            val action: MainFragmentDirections.MainToSecond = MainFragmentDirections.mainToSecond()
+            action.setTitle("image1")
+            Log.v("Log", "Sent data: " + action.title)
+
+            Navigation.findNavController(it).navigate(action)
+        }
+        binding.imageButton2.setOnClickListener {
+            val action: MainFragmentDirections.MainToSecond = MainFragmentDirections.mainToSecond()
+            action.setTitle("image2")
+            Log.v("Log", "Sent data: " + action.title)
+
+            Navigation.findNavController(it).navigate(action)
+        }
+        binding.imageButton3.setOnClickListener {
+            val action: MainFragmentDirections.MainToSecond = MainFragmentDirections.mainToSecond()
+            action.setTitle("image3")
+            Log.v("Log", "Sent data: " + action.title)
+
+            Navigation.findNavController(it).navigate(action)
         }
     }
 

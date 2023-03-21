@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.net.Uri
+import android.util.Log
+
+import com.example.assignment7.databinding.FragmentSecondBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +24,9 @@ class SecondFragment : Fragment() {
     interface OnFragmentInteractionListener {
         fun onFragmentInteraction(uri: Uri)
     }
+
+    private var _binding: FragmentSecondBinding? = null
+    private val binding get() = _binding!!
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -39,7 +45,39 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onStart(){
+        super.onStart()
+        arguments?.let {
+            val args = SecondFragmentArgs.fromBundle(it)
+            var thisTitle = args.getTitle()
+            binding.titleView.text = thisTitle
+
+            when (thisTitle) {
+                "image1" -> {
+                    binding.titleView.text = "Image 1"
+                    binding.imageView.setImageResource(R.drawable.android_image_1)
+                }
+                "image2" -> {
+                    binding.titleView.text = "Image 2"
+                    binding.imageView.setImageResource(R.drawable.android_image_2)
+                }
+                "image3" -> {
+                    binding.titleView.text = "Image 3"
+                    binding.imageView.setImageResource(R.drawable.android_image_3)
+                }
+            }
+
+            Log.v("Log", "Received data:" + args.title)
+        }
     }
 
     companion object {
