@@ -7,12 +7,16 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import com.example.application15.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private var layoutManager : RecyclerView.LayoutManager? = null
+    private var adapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
@@ -24,6 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+        layoutManager = LinearLayoutManager(this)
+        binding.contentMain.recyclerView.layoutManager = layoutManager
+        adapter = RecyclerAdapter()
+        binding.contentMain.recyclerView.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
