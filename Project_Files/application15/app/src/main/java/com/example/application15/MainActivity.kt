@@ -1,16 +1,13 @@
 package com.example.application15
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import com.example.application15.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,8 +17,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var viewModel : MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.shuffleCards()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         layoutManager = LinearLayoutManager(this)
         binding.contentMain.recyclerView.layoutManager = layoutManager
-        adapter = RecyclerAdapter()
+        adapter = RecyclerAdapter(viewModel)
         binding.contentMain.recyclerView.adapter = adapter
     }
 
