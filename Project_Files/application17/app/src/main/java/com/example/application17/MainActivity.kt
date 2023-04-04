@@ -7,11 +7,27 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.application17.R
+import android.content.Intent
+import android.util.Log
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.graphics.drawable.toBitmap
 import com.example.application17.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    fun goToPage(title : TextView, desc : TextView, imageResource : Int) {
+        val intent = Intent(this, MainActivity2::class.java)
+
+        intent.putExtra("title",title.text)
+        intent.putExtra("desc", desc.text)
+        intent.putExtra("image", imageResource)
+
+        startActivity(intent)
+    }
 
     private var layoutManager : RecyclerView.LayoutManager? = null
     private var adapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
