@@ -35,12 +35,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        binding.addNameBtn.setOnClickListener {
+            viewModel.addEntry(binding.enterName.text.toString())
+            adapter?.notifyDataSetChanged()
+        }
+
 
         layoutManager = LinearLayoutManager(this)
-        binding.contentMain.recyclerView.layoutManager = layoutManager
+        binding.recyclerView.layoutManager = layoutManager
         adapter = RecyclerAdapter(viewModel)
-        binding.contentMain.recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

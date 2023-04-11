@@ -1,6 +1,5 @@
 package com.example.application17
 
-import android.util.Log
 import android.view.View
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,16 +12,10 @@ class RecyclerAdapter(myViewModel: MainViewModel) : RecyclerView.Adapter<Recycle
     private var viewModel : MainViewModel = myViewModel
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-        var itemImage : ImageView
-        var itemTitle : TextView
-        var itemDetail : TextView
-
-        var imageResource = 0
+        var itemName : TextView
 
         init {
-            itemImage = itemView.findViewById(R.id.itemImage)
-            itemTitle = itemView.findViewById(R.id.itemTitle)
-            itemDetail = itemView.findViewById(R.id.itemDetail)
+            itemName = itemView.findViewById(R.id.name)
 
         }
     }
@@ -34,14 +27,11 @@ class RecyclerAdapter(myViewModel: MainViewModel) : RecyclerView.Adapter<Recycle
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i : Int) {
-//        viewHolder.itemTitle.text = viewModel.getItemTitle(i)
-//        viewHolder.itemDetail.text = viewModel.getItemDetail(i)
-//        viewHolder.itemImage.setImageResource(viewModel.getItemImage(i))
-//
-//        viewHolder.imageResource = viewModel.getItemImage(i)
+        viewHolder.itemName.text = viewModel.getEntry(i)
+
     }
 
     override fun getItemCount() : Int {
-        return 0
+        return viewModel.getEntryCount()
     }
 }
