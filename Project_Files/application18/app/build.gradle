@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.application17'
+    namespace 'com.example.application18'
     compileSdk 33
 
     buildFeatures {
@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.application17"
+        applicationId "com.example.application18"
         minSdk 26
         targetSdk 33
         versionCode 1

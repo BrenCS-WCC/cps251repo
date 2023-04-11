@@ -1,21 +1,13 @@
-package com.example.application17
+package com.example.application18
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.application17.R
-import android.content.Intent
-import android.util.Log
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.graphics.drawable.toBitmap
-import com.example.application17.databinding.ActivityMainBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.application18.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -25,7 +17,6 @@ class MainActivity : AppCompatActivity() {
 
     private var layoutManager : RecyclerView.LayoutManager? = null
     private var adapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var viewModel : MainViewModel
@@ -33,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         //viewModel.shuffleCards()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -53,13 +44,13 @@ class MainActivity : AppCompatActivity() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
-    suspend fun randomCard() {
-        var launchTime = System.currentTimeMillis()
-        var sleepTime = (0..10000).random().toLong()
+    private suspend fun randomCard() {
+        val launchTime = System.currentTimeMillis()
+        val sleepTime = (0..10000).random().toLong()
 
         delay(sleepTime)
-        var execTime = System.currentTimeMillis()
-        var delayTime = (execTime - launchTime)
+        val execTime = System.currentTimeMillis()
+        val delayTime = (execTime - launchTime)
 
         var report = binding.enterName.text.toString()
         report = "The name is $report and the delay was $delayTime milliseconds"
