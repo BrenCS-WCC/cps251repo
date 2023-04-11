@@ -16,6 +16,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.graphics.drawable.toBitmap
 import com.example.application17.databinding.ActivityMainBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,15 +40,32 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.addNameBtn.setOnClickListener {
-            viewModel.addEntry(binding.enterName.text.toString())
-            adapter?.notifyDataSetChanged()
+            coroutineScope.launch(Dispatchers.Main) {
+                randomCard()
+            }
         }
-
 
         layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         adapter = RecyclerAdapter(viewModel)
         binding.recyclerView.adapter = adapter
+    }
+
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
+
+    suspend fun randomCard() {
+        var launchTime = System.currentTimeMillis()
+        var sleepTime = (0..10000).random().toLong()
+
+        delay(sleepTime)
+        var execTime = System.currentTimeMillis()
+        var delayTime = (execTime - launchTime)
+
+        var report = binding.enterName.text.toString()
+        report = "The name is $report and the delay was $delayTime milliseconds"
+        viewModel.addEntry(report)
+
+        adapter?.notifyDataSetChanged()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

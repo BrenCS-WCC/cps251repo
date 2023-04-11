@@ -16,4 +16,5 @@
     <string name="name">Name</string>
     <string name="button">Button</string>
     <string name="blank">" "</string>
+    <string name="entername">Enter Name</string>
 </resources>
